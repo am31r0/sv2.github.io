@@ -1,0 +1,192 @@
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url('https://biowish.vn/wp-content/uploads/2019/02/med-food-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 0 0;
+    margin: 0rem auto;
+    margin-top:-5.4rem;
+    max-width: 100%;
+    container-name: home-hero;
+    container-type: inline-size;
+    overflow: hidden;
+    z-index: 0;
+}
+
+section.hero__content{
+    padding: 7.2rem 1rem 2rem 1rem;
+    width:100%;
+    backdrop-filter: blur(4px);
+    background: linear-gradient(to top,#ffffff22,#00000055);
+    
+}
+
+@container home-hero (min-width:0px){
+    .hero__content h1 {
+        font-size: 6.7cqw;
+    }
+
+    .hero__content p {
+        font-size: calc(2.6cqw * var(--font-size-factor));
+        color: #bcffc3;
+        margin-bottom: 2rem;
+    }
+
+}
+
+
+.page-header .logo{
+    padding:0.0rem 0rem;
+    height:100%;
+    max-height:3rem;
+    width:auto;
+    max-width:80%;
+}
+
+.home-header.page-header{
+    width:max-content;
+    max-width:60%;
+    border-radius:999px;
+    margin:1.2rem auto 0 auto;
+    padding:1rem 0rem 0.8rem;
+}
+
+.nav-link svg{
+}
+
+
+.home-deals {
+    max-width:95%;
+    margin:auto;
+    margin-top: 0.6rem;
+}
+
+.home-deals-title {
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.home-deals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.3rem;
+}
+
+.home-deal-card {
+    background: var(--card-bg, #fff);
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    padding: 0.3rem!important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.home-deal-card:hover {
+    transform: translateY(-3px);
+}
+
+.home-deal-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+.home-deal-info {
+    width: 100%;
+}
+
+
+.home-deal-name {
+    font-size: 0.6rem!important;
+    font-weight: 500;
+    margin: 0.3rem 0;
+}
+
+.home-deal-prices {
+    font-size: 0.9rem;
+}
+
+.home-old-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 0.4rem;
+}
+
+.home-new-price {
+    font-weight: 700;
+    color: #1a8b00;
+}
+
+.home-wist-je{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: 92%;
+    font-size: 0.8rem;
+    padding:0;
+    line-height: 0.5;
+    margin: 1.5rem auto 1.2rem;
+    column-gap:0.4rem;
+}
+
+.schappie-pro-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    color: #fff;
+    max-width: 95%;
+    margin: 1.5rem auto;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.pro-content {
+    max-width: 420px;
+}
+
+.pro-title {
+    font-family: "Clash Display", system-ui, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.pro-subtitle {
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.2;
+    opacity: 0.95;
+    max-width:340px;
+    margin-bottom: 1.5rem;
+}
+
+.pro-btn {
+    background: #fff;
+    color: #1e1e2f;
+    border: none;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    margin-bottom: 0.7rem;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.pro-btn:hover {
+    background: #f3f4f6;
+    color: #111827;
+}

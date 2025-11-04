@@ -1,0 +1,329 @@
+/* ===============================
+   Deal Cards (bestaand)
+   =============================== */
+.deal-card {
+    position: relative;
+    display: flex;
+    width: 98%;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    padding: 0.5rem 0.5rem;
+    overflow: hidden;
+    cursor: pointer;
+    flex-shrink: 1;
+    transition: background 0.2s;
+    background: var(--mini-surface);
+    border: 1px solid var(--border-line-muted);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #00000012;
+}
+
+.category-block {
+    display: block;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.category-header {
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    font-family: 'Clash Display';
+    letter-spacing: 1px;
+    padding-top:1rem;
+    padding-bottom:0.8rem;
+    grid-column: 1 / -1;
+    background: var(--accent);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 10px;
+    padding-right: 0;
+}
+
+.deal-grid {
+    max-width: 95%;
+    background: var(--surface);
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    border-radius: 0 0 var(--radius) var(--radius);
+    overflow: hidden;
+    padding: 15px 10px 4.5rem;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 5px;
+    row-gap: 10px;
+    border-top: none !important;
+}
+
+.deal-card img {
+    max-width: 100%;
+    border-radius: 6px;
+}
+
+.deal-card .add-btn {
+    justify-self: flex-end;
+    font-size: 0.6rem;
+}
+
+.store-header {
+    max-width: 95%;
+    margin: 0 auto;
+    border-radius: var(--radius) var(--radius) 0 0;
+    color: #fff;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    letter-spacing: -0.04rem;
+    text-transform: uppercase;
+    font-family: 'Clash Display';
+    position: relative;
+    overflow: clip;
+    font-size: 1rem;
+}
+
+.store-header h1 {
+    font-size: 1rem;
+    font-family: 'Clash Display';
+}
+
+.store-header::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to bottom, #ffffff88, #00000077);
+    z-index: 0;
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+}
+
+.btn.show-all {
+    position: absolute;
+    left: 50%;
+    bottom: 1rem;
+    font-size: 0.8rem;
+    transform: translatex(-50%);
+}
+
+.deal-card:hover {
+    background: color-mix(in lab, var(--mini-surface) 80%, var(--ink) 10%);
+}
+
+.deal-card img {
+    width: min(22vw, 110px);
+    height: auto;
+    border-radius: 10px;
+    object-fit: contain;
+    align-self: center;
+}
+
+.deal-card .info {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    word-break: normal;
+    justify-content: space-between;
+}
+
+.deal-card .price-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.deal-card .name {
+    font-size: 0.81rem;
+    font-weight: 500;
+    font-size: calc(0.9rem * var(--font-size-factor));
+    text-align: center;
+    justify-content: center;
+}
+
+.deal-card .meta {
+    font-size: 0.7rem;
+    color: var(--muted);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.deal-card .meta .list-store {
+    font-size: 0.5rem;
+    padding: 0.2rem 0.3rem;
+    height: max-content;
+    width: max-content;
+}
+
+.deal-card .promo-end {
+    font-size: 0.6rem;
+    position: relative;
+    color: #666;
+    margin-top: 4px;
+    font-style: italic;
+    text-align: center;
+}
+
+.deal-card.promo .promo-end {
+    color: #888;
+    font-weight: 500;
+}
+
+.category-nav {
+    display: flex;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    gap: 0.5rem;
+    padding: 0.2rem 1rem;
+    border-bottom: 1px solid #ddd;
+    background: #fafafa;
+    z-index: 5;
+}
+
+
+
+.cat-nav-inner {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    max-height: 5rem;
+    overflow-y: scroll;
+}
+
+.cat-nav-btn{
+    font-size:0.5rem;
+    flex: 1;
+        min-width:7rem;
+}
+
+/* ===============================
+   Nieuw: lijstweergave stijl
+   =============================== */
+.store-deals-list {
+    max-width: 95%;
+    margin: 0 auto 2rem;
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: 0 0 8px #0000000d;
+    padding: 0.6rem 0.6rem 1rem;
+    position: relative;
+}
+
+.store-header-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+    border-left: 4px solid var(--border-line-muted);
+    padding-left: 0.5rem;
+    
+}
+
+.store-header-row img.store-logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    object-fit: contain;
+}
+
+.store-header-row h2 {
+    font-family: 'Clash Display';
+    font-weight: 600;
+    padding: 0.2rem 0;
+    font-size: 1rem;
+    color: var(--ink);
+    
+}
+
+.deal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.deal-row {
+    display: flex;
+    align-items: center;
+    background: var(--mini-surface);
+    border: 1px solid var(--border-line-muted);
+    border-radius: 8px;
+    padding: 0.5rem;
+    gap: 0.6rem;
+    box-shadow: 0px 0px 10px #00000010;
+    transition: background 0.2s;
+}
+
+.deal-row:hover {
+    background: color-mix(in lab, var(--mini-surface) 80%, var(--ink) 10%);
+}
+
+.deal-thumb {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.deal-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.deal-name {
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+    color: var(--ink);
+}
+
+.deal-prices {
+    font-size: 0.85rem;
+}
+
+.deal-prices .old {
+    text-decoration: line-through;
+    opacity: 0.6;
+    margin-right: 0.4rem;
+}
+
+.deal-prices .new {
+    font-weight: 600;
+    color: var(--accent, #007aff);
+}
+
+.deal-row .promo-end {
+    font-size: 0.65rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 2px;
+}
+
+.deal-row .add-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    font-size: 0.8rem;
+    border-radius: 99px;
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+}
+
+.store-deals-list .btn.show-all {
+    margin-top: 0.8rem;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    font-size: 0.8rem;
+}

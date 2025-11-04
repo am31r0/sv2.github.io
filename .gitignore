@@ -1,0 +1,73 @@
+# --- Node / Vite ---
+node_modules/
+dist/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.tsbuildinfo
+
+# Env
+.env
+.env.*.local
+
+# --- Vite/Capacitor build-artifacts in node_modules ---
+**/.cache/
+**/.vite/
+
+# --- IDE ---
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+.idea/
+*.iml
+
+# --- Capacitor Android project builds ---
+android/.gradle/
+android/build/
+android/app/build/
+android/capacitor/build/
+android/capacitor/outputs/
+android/**/intermediates/
+android/**/generated/
+android/**/outputs/
+android/**/transforms/
+
+# Keystores / signing (nooit in git!)
+*.keystore
+*.jks
+*.keystore.*
+*.jks.*
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Lockfiles (kies er één; comment de rest uit als je die wél wilt committen)
+package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Tekstbestanden als tekst behandelen en normaliseren naar LF in repo
+* text=auto eol=lf
+
+# Windows scripts mogen CRLF houden in working tree
+*.bat eol=crlf
+*.cmd eol=crlf
+*.ps1 eol=crlf
+
+# Images/binaries nooit mergen als tekst
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.mp3 binary
+*.mp4 binary
+*.wav binary
+*.zip binary
+*.jar binary
+*.dex binary
+
