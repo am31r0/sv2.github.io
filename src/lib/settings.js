@@ -3,7 +3,7 @@ const LS_KEY = "sms_settings";
 
 const DEFAULTS = {
   fontSizeFactor: 0.9, // 0.9 of 1.2
-  accessibilityFont: "default", // "default" | "dyslexic"
+  accessibilityFont:"default", // "default" | "dyslexic"
 };
 
 let state = null;

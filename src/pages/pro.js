@@ -13,9 +13,8 @@ export function renderProPage(mount) {
 
   mount.innerHTML = `
     <section class="pro">
-      <header class="page-header pro-gradient" style="margin-bottom: 1.6rem;">
+      <header class="page-header" style="margin-bottom: 1.6rem;">
         <h1>Schappie Pro</h1>
-        <h3 style="font-size: 0.8rem; opacity: 0.7;">(betaalde functies)</h3>
       </header>
 
       <!-- FAVORIETEN -->

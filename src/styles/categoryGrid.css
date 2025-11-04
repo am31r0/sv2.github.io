@@ -8,13 +8,24 @@
     margin: 12px 0 16px;
 }
 
+.cat-grid-wrapper-withbutton{
+    position: relative;
+        overflow: hidden;
+        max-width: 96%;
+        margin: 0 auto 1rem auto;
+        border-radius: var(--radius);
+        transition: max-height 0.3s ease;
+        background: var(--surface);
+}
+
 /* === Categorie-grid wrapper === */
 .categories-grid-wrapper {
     position: relative;
     overflow: hidden;
-    max-width: 96%;
     margin: 0 auto;
+    border-radius: var(--radius);
     transition: max-height 0.3s ease;
+
 }
 
 .categories-grid-wrapper::after {
@@ -25,7 +36,7 @@
     width: 100%;
     position: absolute;
     pointer-events: none;
-    background: linear-gradient(to bottom, transparent 60%, var(--bg));
+    background: linear-gradient(to bottom, transparent 60%, var(--surface));
 }
 
 .categories-grid-wrapper.expanded::after {

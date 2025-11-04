@@ -10,7 +10,7 @@
 .list-container {
     background: var(--surface);
     border-radius: var(--radius);
-    padding: 16px;
+    padding: 16px 10px 1px 10px;
     max-width: 96%;
     margin: 0 auto;
 }

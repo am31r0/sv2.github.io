@@ -1,32 +1,19 @@
 /* Base styles, fonts & colors */
 :root {
-    --buttonbg: #101010;
-    --bg: #121212;
-    --surface: #1e1e1e;
-    --ink: #ffffff;
-    --muted: #b3b3b3;
-    --accent: linear-gradient(to top, #22952a, #26b85e);
-    --radius: 16px;
-    --btnradius: 50px;
-    --transition: 0.25s ease;
-    --mini-surface: #282828;
-    --border-line-muted: #444444;
-    --font-size-factor:0.9;
-    --font-family-accessibility: Inter;
-    --danger-btn: linear-gradient(to bottom, red, #b00000) !important;
-}
-
-html[data-theme="light"] {
-    color-scheme: light;
     --buttonbg: #dfdfdf;
     --bg: #efefef;
     --surface: #fff;
-    --mini-surface: #efefef;
     --ink: #161616;
-    --muted: #5a5a5a;
+    --muted: #b3b3b3;
+    --accent: linear-gradient(to top, #1f7d5e, #26b85e);
+    --radius: 16px;
+    --btnradius: 50px;
+    --transition: 0.25s ease;
+    --mini-surface: #efefef;
     --border-line-muted: #e5e5e5;
+    --font-size-factor:0.9;
+    --font-family-accessibility: Inter;
     --danger-btn: linear-gradient(to bottom, red, #b00000) !important;
-    /* accent blijft overschrijfbaar; komt uit settings */
 }
 
 * {

@@ -6,10 +6,10 @@
     background: url('https://biowish.vn/wp-content/uploads/2019/02/med-food-hero.jpg');
     background-size: cover;
     background-position: center;
-    border-radius: 0 0 0;
-    margin: 0rem auto;
-    margin-top:-5.4rem;
-    max-width: 100%;
+    border-radius: 20px;
+    margin: 0rem auto 1rem auto;
+    /*margin-top:-5.4rem;*/
+    max-width: 95%;
     container-name: home-hero;
     container-type: inline-size;
     overflow: hidden;
@@ -17,7 +17,7 @@
 }
 
 section.hero__content{
-    padding: 7.2rem 1rem 2rem 1rem;
+    padding: 2.8rem 1rem 2.6rem 1rem;
     width:100%;
     backdrop-filter: blur(4px);
     background: linear-gradient(to top,#ffffff22,#00000055);
@@ -50,8 +50,8 @@ section.hero__content{
     width:max-content;
     max-width:60%;
     border-radius:999px;
-    margin:1.2rem auto 0 auto;
-    padding:1rem 0rem 0.8rem;
+    margin:0rem auto 0rem auto;
+    background: none;
 }
 
 .nav-link svg{
@@ -66,8 +66,9 @@ section.hero__content{
 
 .home-deals-title {
     margin-bottom: 0.8rem;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     font-weight: 600;
+    color:#fff;
 }
 
 .home-deals-grid {
@@ -78,7 +79,7 @@ section.hero__content{
 
 .home-deal-card {
     background: var(--card-bg, #fff);
-    border-radius: 1rem;
+    border-radius: 15px!important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     padding: 0.3rem!important;
     display: flex;
@@ -136,6 +137,7 @@ section.hero__content{
     line-height: 0.5;
     margin: 1.5rem auto 1.2rem;
     column-gap:0.4rem;
+    color:#fff;
 }
 
 .schappie-pro-card {

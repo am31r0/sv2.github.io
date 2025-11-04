@@ -7,7 +7,7 @@
     gap:0.8rem;
     width:max-content;
     max-width:100%;
-    margin:0.8rem auto;
+    margin:0.8rem auto 2rem auto;
     text-align: center;
 }
 .store-select-group{
@@ -24,6 +24,7 @@
     font-weight: 300;
     margin-right: 0.1rem;
     font-size: 0.75rem;
+    color:#fff;
 }
 
 .store-option {

@@ -10,10 +10,11 @@ import { CATEGORIES, PRODUCTS } from "../data/products.js";
  */
 export function renderCategoryGrid(mount, { onSelect }) {
   mount.innerHTML = `
+  <div class ="cat-grid-wrapper-withbutton">
     <div class="categories-grid-wrapper">
       <div class="categories-grid" aria-label="Categorieën"></div>
     </div>
-    <button class="categories-more-btn">Meer tonen</button>
+    <button class="categories-more-btn">Meer tonen</button></div>
 
     <div class="category-modal" hidden>
       <div class="modal-backdrop"></div>
@@ -108,7 +109,7 @@ export function renderCategoryGrid(mount, { onSelect }) {
   const firstCard = grid.querySelector(".category-card");
   if (firstCard) {
     const cardHeight = firstCard.offsetHeight + 8;
-    wrapper.style.maxHeight = `${cardHeight * 1.8}px`;
+    wrapper.style.maxHeight = `10rem`;
   }
 
   // === Meer/minder knop ===

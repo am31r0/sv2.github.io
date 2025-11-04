@@ -1,9 +1,6 @@
 // src/pages/settings.js
 import {
   getSettings,
-  setTheme,
-  setAccent,
-  ACCENTS,
   setFontSizeFactor,
   setAccessibilityFont,
 } from "../lib/settings.js";
@@ -17,33 +14,7 @@ export function renderSettingsPage(mount) {
   mount.innerHTML = `
   <div class="page-header"><h1>Instellingen</h1></div>
     <section class="settings">
-      <div class="card">
-        <h2>App-thema</h2>
-        <div class="row">
-          <span>Dark</span>
-          <label class="switch">
-            <input id="theme-toggle" type="checkbox" ${
-              resolveChecked(s.theme) ? "checked" : ""
-            } />
-            <span class="slider"></span>
-          </label>
-          <span>Light</span>
-          <button class="btn" id="system-mode" title="Volg systeemvoorkeur">Systeem</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>Accentkleur</h2>
-        <div class="swatches" id="accent-swatches" role="radiogroup" aria-label="Accent kleur">
-          ${ACCENTS.map(
-            (c) => `
-            <button class="swatch" role="radio" aria-checked="${
-              s.accent === c
-            }" data-color="${c}" style="background:${c}" title="${c}"></button>
-          `
-          ).join("")}
-        </div>
-      </div>
+  
 
       <div class="card">
         <h2>Tekstgrootte</h2>
@@ -79,31 +50,6 @@ export function renderSettingsPage(mount) {
       </section>
   `;
 
-  // Thema
-  const toggle = mount.querySelector("#theme-toggle");
-  toggle?.addEventListener("change", (e) => {
-    setTheme(e.target.checked ? "light" : "dark");
-  });
-  mount.querySelector("#system-mode")?.addEventListener("click", () => {
-    setTheme("system");
-    const prefersLight = window.matchMedia?.(
-      "(prefers-color-scheme: light)"
-    )?.matches;
-    if (toggle) toggle.checked = !!prefersLight;
-  });
-
-  // Accent
-  const groupAccent = mount.querySelector("#accent-swatches");
-  groupAccent?.addEventListener("click", (e) => {
-    const btn = e.target.closest(".swatch");
-    if (!btn) return;
-    const color = btn.dataset.color;
-    setAccent(color);
-    groupAccent
-      .querySelectorAll(".swatch")
-      .forEach((w) => w.setAttribute("aria-checked", "false"));
-    btn.setAttribute("aria-checked", "true");
-  });
 
   // Tekstgrootte
   const groupSize = mount.querySelector("#font-size-group");
@@ -130,11 +76,4 @@ export function renderSettingsPage(mount) {
       .forEach((b) => b.setAttribute("aria-checked", "false"));
     btn.setAttribute("aria-checked", "true");
   });
-}
-
-function resolveChecked(theme) {
-  if (theme === "system") {
-    return window.matchMedia?.("(prefers-color-scheme: light)")?.matches;
-  }
-  return theme === "light";
 }
