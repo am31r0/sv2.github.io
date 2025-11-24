@@ -501,8 +501,8 @@ export function normalizeHoogvliet(p) {
   return {
     store: "hoogvliet",
     id: p.id,
-    name: p.title,
-    brand: p.brand || p.title.split(" ")[0],
+    name: p.title || p.name || "Naamloos product",
+    brand: p.brand || (p.title ? p.title.split(" ")[0] : ""),
     rawCategory: p.categoryHierarchy || p.category,
     unifiedCategory: unifyCategory(
       "HOOGVLIET",

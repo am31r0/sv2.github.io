@@ -1,0 +1,178 @@
+/* ===========================
+   NON-PRO UPGRADE PAGE
+   =========================== */
+
+.non-pro-container {
+    max-width: min(480px, 95vw);
+    margin: 2rem auto;
+    text-align: center;
+    color: #fff;
+    animation: slideInGlass 0.6s ease-out;
+}
+
+.non-pro-title {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+    color: #fff;
+}
+
+.non-pro-title strong {
+    font-size: 1.8rem;
+}
+
+.non-pro-subtitle {
+    font-size: 0.88rem;
+    opacity: 0.95;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.non-pro-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.non-pro-feature {
+    background: linear-gradient(70deg, #ffffff35, #ffffff25);
+    padding: 1rem 0.75rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.non-pro-feature-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.icon-red svg {
+    color: #ff0000;
+}
+
+.icon-yellow svg {
+    color: #f3c019;
+}
+
+.icon-blue svg {
+    color: #3355ff;
+}
+
+.icon-green svg {
+    color: #a6ffa6;
+}
+
+.non-pro-feature-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.non-pro-feature-desc {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.non-pro-pricing {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1.5rem;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.non-pro-pricing-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 0.1rem !important;
+}
+
+.non-pro-pricing-amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.non-pro-pricing-after {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+}
+
+.btn-subscribe {
+    width: max-content;
+    background: rgba(255, 255, 255, 0.95);
+    color: #000;
+    border: none;
+    padding: 1rem 2rem !important;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: Inter;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-subscribe:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.non-pro-code-section {
+    background: linear-gradient(70deg, #ffffff35, #ffffff25);
+    padding: 1rem;
+    border-radius: 99px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.2s ease-out;
+}
+
+.non-pro-code-section[open] {
+    border-radius: 20px;
+}
+
+.non-pro-code-summary {
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0.9;
+    list-style: none;
+}
+
+.non-pro-code-content {
+    margin-top: 1rem;
+}
+
+.non-pro-code-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #fff;
+}
+
+.non-pro-code-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.non-pro-code-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 99px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #000;
+}
+
+.non-pro-code-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+}

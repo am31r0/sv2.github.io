@@ -5,18 +5,18 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    padding:0px 10px;
+    padding: 0px 10px;
     margin: 12px 0 16px;
 }
 
-.cat-grid-wrapper-withbutton{
+.cat-grid-wrapper-withbutton {
     position: relative;
-        overflow: hidden;
-        max-width: 96%;
-        margin: 0 auto 1rem auto;
-        border-radius: var(--radius);
-        transition: max-height 0.3s ease;
-        background: var(--surface);
+    overflow: hidden;
+    max-width: 96%;
+    margin: 0 auto 1rem auto;
+    border-radius: var(--radius);
+    transition: max-height 0.3s ease;
+    background: var(--surface);
 }
 
 /* === Categorie-grid wrapper === */
@@ -64,14 +64,12 @@
     border: none;
     border-radius: var(--btnradius);
     cursor: pointer;
-    font-weight: 100;
+    font-weight: 400;
     font-size: 0.7rem;
     transition: background 0.2s;
 }
 
-.categories-more-btn:hover {
-
-}
+.categories-more-btn:hover {}
 
 /* === Category Card === */
 .category-card {
@@ -83,16 +81,17 @@
     font-family: var(--font-family-accessibilty);
     padding: 10px;
     border-radius: 12px;
-    background: var(--mini-surface);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #fff;
+    border: 1px solid #00000015;
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.05);
     color: var(--ink);
     cursor: pointer;
     transition: transform var(--transition), background var(--transition), border-color var(--transition);
 }
 
 .category-card .emoji {
-    max-width:100%;
-    max-height:40px;
+    max-width: 100%;
+    max-height: 40px;
 }
 
 .category-card .label {
@@ -101,9 +100,9 @@
     font-weight: 700;
 }
 
-.categories-grid-wrapper>div>button:nth-child(4)>span.label{
+.categories-grid-wrapper>div>button:nth-child(4)>span.label {
     font-size: calc(.62rem * var(--font-size-factor));
-    text-wrap:nowrap;
+    text-wrap: nowrap;
 }
 
 .categories-grid-wrapper>div>button:nth-child(7)>span.label {
@@ -131,27 +130,32 @@
 /* === Modal === */
 .category-modal {
     position: fixed;
-    inset: 0;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    width: 100%;
     z-index: 998;
     /* boven alles */
 }
 
 .category-modal .modal-backdrop {
     position: fixed;
-    height: 400vh;
+    height: 100%;
     inset: 0;
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(3px);
-    animation: fadeIn 0.6s ease-out;
+    animation: 0.6s ease-out;
 }
 
 .category-modal .modal-content {
-    position: sticky;
-    top: 5vh;
+    position: fixed;
+    inset: 0;
+    top: calc(50% - 70px);
     left: 50%;
-    transform: translateX(-2.5%);
+    transform: translate(-50%, -50%);
     width: min(480px, calc(100% - 24px));
     max-width: 480px;
+    height: 600px;
     max-height: calc(95dvh - 100px);
     overflow: auto;
     background: var(--surface);
@@ -359,14 +363,4 @@
 .pack-badge:hover {
     background: #181818;
     /* zelfde hover als de kleine btns */
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
 }

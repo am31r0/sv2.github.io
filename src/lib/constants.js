@@ -77,3 +77,38 @@ export const STORE_ORDER = [
   "hoogvliet",
   "other",
 ];
+
+// -------------------------
+// UI Configuration Constants
+// -------------------------
+export const UI_CONSTANTS = {
+  // Pro feature limits
+  MAX_FREE_FAVORITES: 3,
+  MAX_FREE_HISTORY: 3,
+  
+  // Pagination
+  HISTORY_PAGE_SIZE: 8,
+  MAX_VISIBLE_FAVORITES: 3,
+  MAX_SCROLL_FAVORITES: 8,
+  
+  // Touch/Swipe
+  SWIPE_THRESHOLD: 50,
+  SWIPE_THRESHOLD_Y: 30,
+  MOUSE_DRAG_THRESHOLD: 50,
+  
+  // Debounce delays (ms)
+  TOUCH_DEBOUNCE: 100,
+  SEARCH_DEBOUNCE: 300,
+};
+
+// -------------------------
+// Navigation tabs order
+// -------------------------
+export const NAV_TABS = [
+  "#/home",
+  "#/list",
+  "#/deals",
+  "#/pro",
+  "#/settings"
+];
+

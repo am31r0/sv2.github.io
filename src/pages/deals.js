@@ -353,7 +353,7 @@ export async function renderDealsPage(mount) {
     ensureShimmerKF();
 
     // één skeleton-blok (met spinner erin)
-    const block = (w = "100%", h = 135, mb = 10) => `
+    const block = (w = "100%", h = 120, mb = 10) => `
       <div style="
         position:relative;
         width:${w}; height:${h}px; margin-bottom:${mb}px; border-radius:12px;
@@ -375,13 +375,14 @@ export async function renderDealsPage(mount) {
       <div style="
         border-radius:20px; background:var(--card-bg,#fff);
         box-shadow:0 2px 8px rgba(0,0,0,.06);
-        padding:12px; width:min(480px,95vw);
+        padding:70px 12px 50px
+        ; width:min(478px,95vw);
         overflow:hidden;
         margin:0 auto 20px auto;
       ">
-        ${block("100%", 120, 10)}
-        ${block("100%", 120, 6)}
-        ${block("100%", 120, 6)}
+        ${block("100%", 100, 10)}
+        ${block("100%", 100, 6)}
+        ${block("100%", 100, 6)}
       </div>
     `;
 

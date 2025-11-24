@@ -1,5 +1,6 @@
 // src/lib/adSystem.js
-import { showNav } from "./utils.js"; // zelfde als in tutorial.js
+import { showNav } from "./utils.js";
+import { session } from "./session.js"; // ✅ Import session for PRO check
 
 const MIN_CLICKS = 7; // aantal interacties voordat advertentie mogelijk is
 const MIN_INTERVAL = 1 * 60 * 1000; // 1 minuut
@@ -21,7 +22,15 @@ function setLastAdTime(time) {
 }
 
 export function registerClick() {
+  // ✅ Geen ads op login pagina
   if (location.hash.startsWith("#/login")) return;
+  
+  // ✅ Geen ads tijdens tutorial
+  if (location.hash.startsWith("#/tutorial")) return;
+  
+  // ✅ Geen ads voor PRO users
+  if (session.hasPro()) return;
+  
   let clicks = getClicks() + 1;
   setClicks(clicks);
 
@@ -37,6 +46,12 @@ export function registerClick() {
 
 export function showAdOverlay() {
   if (document.querySelector(".ad-overlay")) return;
+  
+  // ✅ Extra check: geen ads tijdens tutorial
+  if (location.hash.startsWith("#/tutorial")) return;
+  
+  // ✅ Extra check: geen ads voor PRO users
+  if (session.hasPro()) return;
 
   showNav(false);
 

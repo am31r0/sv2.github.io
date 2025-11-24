@@ -1,9 +1,9 @@
 // =============================================
 // Animated hash router met default route + active nav + smooth transition
+// + beforeEach() guard support + router.go() alias
 // =============================================
 
 export function createRouter({ routes, mountEl, defaultHash = "#/home" }) {
-  
   const reduceMotion =
     window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches === true;
 
@@ -11,6 +11,12 @@ export function createRouter({ routes, mountEl, defaultHash = "#/home" }) {
     document.getElementById("app-wrapper") ||
     mountEl.parentElement ||
     document.body;
+
+  /* ----------------------------
+     Internal State
+  ----------------------------- */
+  let guardFn = null; // voor beforeEach
+  let lastHash = null;
 
   /* ----------------------------
      Helpers
@@ -40,9 +46,7 @@ export function createRouter({ routes, mountEl, defaultHash = "#/home" }) {
     const index = tabs.indexOf(currentHash);
     const nextIndex = (index + direction + tabs.length) % tabs.length;
     return tabs[nextIndex];
-    
   }
-
 
   /* ----------------------------
      Transition & Render
@@ -50,31 +54,25 @@ export function createRouter({ routes, mountEl, defaultHash = "#/home" }) {
   function renderWithTransition(targetHash) {
     const routeFn = getRenderer(targetHash);
 
-    // Bij voorkeur: minimale motion = geen animatie
     if (reduceMotion) {
       routeFn(mountEl);
       setActiveNav(targetHash);
-      
       mountEl.scrollTop = 0;
       window.scrollTo(0, 0);
       return;
     }
 
-    // Start fade-out
     wrapper.classList.add("page-transition-out");
 
-    // Wacht kort voor vloeiendheid
     setTimeout(() => {
       wrapper.classList.remove("page-transition-out");
       wrapper.classList.add("page-transition-in");
 
-      // Render nieuwe pagina
       routeFn(mountEl);
       setActiveNav(targetHash);
       mountEl.scrollTop = 0;
       window.scrollTo(0, 0);
 
-      // Reset animatieclass
       setTimeout(() => {
         wrapper.classList.remove("page-transition-in");
       }, 250);
@@ -82,11 +80,39 @@ export function createRouter({ routes, mountEl, defaultHash = "#/home" }) {
   }
 
   /* ----------------------------
-     Hashchange Handler
+     Guard handling
+  ----------------------------- */
+  function runGuard(to, from, next) {
+    if (typeof guardFn === "function") {
+      try {
+        guardFn(to, from, next);
+      } catch (err) {
+        console.error("Router guard error:", err);
+        next();
+      }
+    } else {
+      next(); // geen guard ingesteld
+    }
+  }
+
+  /* ----------------------------
+     Navigation core
   ----------------------------- */
   function onHashChange() {
     const hash = window.location.hash || defaultHash;
-    renderWithTransition(hash);
+    const from = lastHash;
+    const to = hash;
+    lastHash = hash;
+
+    // Guard-intercept
+    runGuard(to, from, (override) => {
+      if (typeof override === "string") {
+        // redirect
+        navigate(override);
+        return;
+      }
+      renderWithTransition(hash);
+    });
   }
 
   window.addEventListener("hashchange", onHashChange);
@@ -95,17 +121,15 @@ export function createRouter({ routes, mountEl, defaultHash = "#/home" }) {
      Lifecycle Controls
   ----------------------------- */
   function start() {
+    lastHash = window.location.hash || defaultHash;
     if (!window.location.hash) {
-      // Triggert hashchange → render
       window.location.hash = defaultHash;
     } else {
-      // Directe render bij deeplink/init
       renderWithTransition(window.location.hash);
     }
   }
 
   function navigate(to) {
-    // Als hash gelijk is, forceer render (bijv. tab opnieuw klikken)
     if (window.location.hash === to) {
       renderWithTransition(to);
     } else {
@@ -113,15 +137,20 @@ export function createRouter({ routes, mountEl, defaultHash = "#/home" }) {
     }
   }
 
+  function go(to) {
+    navigate(to); // alias zodat router.go() werkt
+  }
+
   function destroy() {
     window.removeEventListener("hashchange", onHashChange);
   }
 
-  
+  function beforeEach(fn) {
+    guardFn = fn;
+  }
 
   /* ----------------------------
      Expose
   ----------------------------- */
-  return { start, navigate, destroy, getNextHash };
+  return { start, navigate, go, destroy, getNextHash, beforeEach };
 }
-

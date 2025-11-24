@@ -51,3 +51,11 @@ export function shouldShowTutorialOnce() {
 export function markTutorialShown() {
   markSeen();
 }
+
+// ✅ Reset tutorial status (voor nieuwe sign-ins)
+export function resetTutorialStatus() {
+  try {
+    localStorage.removeItem(LS_KEY);
+  } catch (e) {}
+  // Cookie niet verwijderen, alleen localStorage
+}

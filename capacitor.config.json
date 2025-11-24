@@ -6,5 +6,12 @@
     "url": "http://10.0.2.2:5173",
     "cleartext": true,
     "androidScheme": "http"
+  },
+  "plugins": {
+    "GoogleAuth": {
+      "scopes": ["profile", "email"],
+      "serverClientId": "YOUR_ANDROID_CLIENT_ID.apps.googleusercontent.com",
+      "forceCodeForRefreshToken": true
+    }
   }
 }

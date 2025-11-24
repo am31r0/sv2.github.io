@@ -1,74 +1,112 @@
 .hero {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: url('https://biowish.vn/wp-content/uploads/2019/02/med-food-hero.jpg');
+    background: url('/images/hero-banner-img_01.webp');
     background-size: cover;
     background-position: center;
-    border-radius: 20px;
-    margin: 0rem auto 1rem auto;
+    margin: -2.3rem auto 0 auto;
     /*margin-top:-5.4rem;*/
-    max-width: 95%;
+    max-width: 100%;
     container-name: home-hero;
     container-type: inline-size;
     overflow: hidden;
     z-index: 0;
 }
 
-section.hero__content{
-    padding: 2.8rem 1rem 2.6rem 1rem;
-    width:100%;
-    backdrop-filter: blur(4px);
-    background: linear-gradient(to top,#ffffff22,#00000055);
-    
+section.hero__content {
+    width: 100%;
+    padding-top: 2.3rem;
+    padding-bottom: 2.5rem;
+    background: #b6e7b5;
 }
 
-@container home-hero (min-width:0px){
-    .hero__content h1 {
-        font-size: 6.7cqw;
+.hero-inside {
+    margin: auto;
+    margin-top: 2.6rem;
+    max-width: 80%;
+    position: relative;
+}
+
+@container home-hero (min-width:0px) {
+    .hero-inside h1::first-line {
+        font-size: 0.84em;
     }
 
-    .hero__content p {
+    .hero-inside h1 {
+        font-size: 7.9cqw;
+        line-height: 1;
+        margin-bottom: 2rem;
+        text-shadow: 0 0px 2px rgba(0, 0, 0, 0.08);
+    }
+
+    .hero-inside p {
         font-size: calc(2.6cqw * var(--font-size-factor));
-        color: #bcffc3;
+        color: #000;
         margin-bottom: 2rem;
     }
 
+    .hero-inside img {
+        width: auto;
+        height: 150%;
+        position: absolute;
+        bottom: -2.42rem;
+        right: -2%;
+        z-index: 1;
+    }
+
 }
 
-
-.page-header .logo{
-    padding:0.0rem 0rem;
-    height:100%;
-    max-height:3rem;
-    width:auto;
-    max-width:80%;
+.home-deals-btn {
+    font-size: 0.8rem;
+    align-self: center;
+    justify-self: center;
+    margin: 0 auto;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
-.home-header.page-header{
-    width:max-content;
-    max-width:60%;
-    border-radius:999px;
-    margin:0rem auto 0rem auto;
-    background: none;
+.white-bg {
+    background: #fff;
+    color: #1a8b00;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
 
-.nav-link svg{
+.page-header .logo {
+    padding: 0.0rem 0rem;
+    height: 100%;
+    max-height: 3rem;
+    width: auto;
+    max-width: 50%;
 }
 
+.home-header.page-header {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0 0 25% 25%;
+    margin: 0rem auto 0rem auto;
+    background: var(--accent);
+    z-index: 2;
+}
+
+.home-deals-wrapper {
+    max-width: 100%;
+    margin: auto;
+    border-radius: 0 0;
+    padding-top: 0.8rem;
+    background: #fff;
+    padding-bottom: 1rem;
+}
 
 .home-deals {
-    max-width:95%;
-    margin:auto;
-    margin-top: 0.6rem;
+    max-width: 95%;
+    margin: auto;
 }
 
 .home-deals-title {
     margin-bottom: 0.8rem;
     font-size: 1.0rem;
     font-weight: 600;
-    color:#fff;
+    color: #000;
 }
 
 .home-deals-grid {
@@ -79,18 +117,14 @@ section.hero__content{
 
 .home-deal-card {
     background: var(--card-bg, #fff);
-    border-radius: 15px!important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    padding: 0.3rem!important;
+    border-radius: 15px !important;
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.0);
+    padding: 0.3rem !important;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     transition: transform 0.2s ease;
-}
-
-.home-deal-card:hover {
-    transform: translateY(-3px);
 }
 
 .home-deal-img {
@@ -106,9 +140,15 @@ section.hero__content{
 
 
 .home-deal-name {
-    font-size: 0.6rem!important;
+    font-size: 0.6rem !important;
     font-weight: 500;
     margin: 0.3rem 0;
+    line-clamp: 2;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
 }
 
 .home-deal-prices {
@@ -126,18 +166,20 @@ section.hero__content{
     color: #1a8b00;
 }
 
-.home-wist-je{
+.home-wist-je {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
-    max-width: 92%;
-    font-size: 0.8rem;
-    padding:0;
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+    background: #fff;
+}
+
+.home-wist-je p {
+    font-size: 14px;
     line-height: 0.5;
-    margin: 1.5rem auto 1.2rem;
-    column-gap:0.4rem;
-    color:#fff;
 }
 
 .schappie-pro-card {
@@ -150,8 +192,9 @@ section.hero__content{
     margin: 1.5rem auto;
     padding: 1.5rem 2rem;
     text-align: center;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.19);
-    border:1.2px solid #fff;
+    background: linear-gradient(70deg, #ffffff35, #ffffff25);
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #ffffff40;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
@@ -172,7 +215,7 @@ section.hero__content{
     font-size: 0.92rem;
     line-height: 1.2;
     opacity: 0.95;
-    max-width:340px;
+    max-width: 340px;
     margin-bottom: 1.5rem;
 }
 
@@ -192,4 +235,99 @@ section.hero__content{
 .pro-btn:hover {
     background: #f3f4f6;
     color: #111827;
+}
+
+/* Reviews Section */
+.home-reviews {
+    max-width: 100%;
+    margin: 1rem auto;
+    padding: 0.0rem 0;
+}
+
+.home-reviews-title {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.home-reviews-carousel {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x;
+    padding: 0.5rem 3%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.home-reviews-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.home-review-card {
+    width: min(300px, 70vw);
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 1.2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+}
+
+.home-review-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.6rem;
+}
+
+.home-review-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.3px;
+}
+
+.home-review-info {
+    flex: 1;
+}
+
+.home-review-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.home-review-name .pro-badge {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.4rem;
+    vertical-align: middle;
+}
+
+.home-review-stars {
+    font-size: 1rem;
+    color: #df4e7f;
+    letter-spacing: 1px;
+}
+
+.home-review-text {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--ink);
+    opacity: 0.9;
+    margin: 0;
 }

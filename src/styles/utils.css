@@ -13,7 +13,7 @@
 
 .toast {
     background: #002c0c55;
-    backdrop-filter:blur(5px) brightness(0.5);
+    backdrop-filter: blur(5px) brightness(0.5);
     color: #ffffff;
     padding: 10px 16px;
     border-radius: 99px;
@@ -22,8 +22,8 @@
     transform: translateY(20px);
     transition: opacity 0.3s, transform 0.3s;
     box-shadow: 0 0 10px #00000045;
-    width:max-content;
-    max-width:min(95vw,460px);
+    width: max-content;
+    max-width: min(95vw, 460px);
     word-wrap: break-word;
     text-align: center;
 }

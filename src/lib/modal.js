@@ -7,6 +7,9 @@ import { registerClick } from "../lib/adSystem.js";
 import { STORE_LABEL } from "./constants.js";
 import { addItem } from "../pages/list.js";
 
+import { toggleFavorite, heartSvg } from "../lib/favorites.js";
+import { togglePriceAlert, hasAlert, getAlertIcon } from "../lib/priceAlert.js";
+
 // ------------------ Basishandlers ------------------
 export function closeAllModals() {
   document.querySelectorAll(".search-modal").forEach((el) => el.remove());
@@ -336,47 +339,60 @@ export function showSearchModal(results, onSelect) {
               ${promoEndHtml}
               <div class="actions">
                 <button class="btn small add-btn">Toevoegen</button>
+                <button class="fav-btn icon-btn" title="Favoriet" style="background:transparent;border:none; vertical-align:middle;padding-top:2px;">${heartSvg(p)}</button>
+                <button class="alert-btn icon-btn" title="Prijsalert" style="background:transparent;border:none; vertical-align:middle;padding-top:2px;">${getAlertIcon(hasAlert(p))}</button>
               </div>
             </div>
           </div>`;
+
       })
       .join("");
 
     // === Zelfde add-flow als in deals.js ===
     const resolveChosen = (row) => {
-  const id = row.dataset.id;
-  if (!id) return null;
-  return (
-    data.find(
-      (r) =>
-        String(r.id) === id ||
-        String(r.productId) === id ||
-        String(r.sku) === id
-    ) || null
-  );
-};
+      const id = row.dataset.id;
+      if (!id) return null;
+      return (
+        data.find(
+          (r) =>
+            String(r.id) === id ||
+            String(r.productId) === id ||
+            String(r.sku) === id
+        ) || null
+      );
+    };
 
-      // Eén listener voor alles binnen resultsBox
-      resultsBox.addEventListener("click", (e) => {
-        const row = e.target.closest(".result-row");
-        if (!row || !resultsBox.contains(row)) return;
+    // Eén listener voor alles binnen resultsBox
+    resultsBox.addEventListener("click", (e) => {
+      const row = e.target.closest(".result-row");
+      if (!row || !resultsBox.contains(row)) return;
 
-        // Info-knop: laat standaard link-gedrag doorgaan
-        if (e.target.closest(".info-btn")) return;
+      // Info-knop: laat standaard link-gedrag doorgaan
+      if (e.target.closest(".info-btn")) return;
 
-        const chosen = resolveChosen(row);
-        if (!chosen) return;
+      const chosen = resolveChosen(row);
+      if (!chosen) return;
 
-        // Add-knop: voorkom bubbelen naar row-click
-        if (e.target.closest(".add-btn")) {
-          e.stopPropagation();
+      // Add-knop: voorkom bubbelen naar row-click
+      if (e.target.closest(".add-btn")) {
+        e.stopPropagation();
+        if (onSelect) {
+          onSelect(chosen);
+        } else {
           addItem(chosen);
-          closeModal();
-          return;
         }
+        closeModal();
+        return;
+      }
+      
+      // Fav en Alert knoppen worden apart afgehandeld in de loop hieronder,
+      // maar we moeten voorkomen dat de row click wordt getriggerd.
+      if (e.target.closest(".fav-btn") || e.target.closest(".alert-btn")) {
+          return;
+      }
 
-        // Klik op kaart → selecteren
-        registerClick();
+      // Klik op kaart → selecteren
+      registerClick();
 
       // (i)-knop click
       const infoBtn = row.querySelector(".info-btn");
@@ -385,7 +401,7 @@ export function showSearchModal(results, onSelect) {
           e.stopPropagation();
           window.open(infoBtn.dataset.link, "_blank");
         });
-      });
+    });
 
     // Listeners (zoals in deals.js)
     resultsBox.querySelectorAll(".result-row").forEach((row) => {
@@ -394,8 +410,14 @@ export function showSearchModal(results, onSelect) {
         addBtn.addEventListener("click", (e) => {
           e.stopPropagation();
           const chosen = findChosenByRow(row, data);
-          if (chosen) addItem(chosen);
-          closeModal();// ⬅️ jouw bestaande functie
+          if (chosen) {
+            if (onSelect) {
+              onSelect(chosen);
+            } else {
+              addItem(chosen);
+            }
+          }
+          closeModal();
         });
       }
 
@@ -404,20 +426,22 @@ export function showSearchModal(results, onSelect) {
         favBtn.addEventListener("click", (e) => {
           e.stopPropagation();
           const chosen = findChosenByRow(row, data);
-          if (!chosen) return;
-
-          // Gebruik wat jij al hebt: toggleFavorite() of addFavorite()/removeFavorite()
-          if (typeof toggleFavorite === "function") {
-            toggleFavorite(chosen);
-          } else if (typeof addFavorite === "function") {
-            // domme toggle fallback
-            const ok = favBtn.classList.toggle("is-active");
-            if (ok) addFavorite(chosen);
-            else if (typeof removeFavorite === "function")
-              removeFavorite(chosen);
+          if (chosen) {
+             toggleFavorite(chosen);
+             favBtn.innerHTML = heartSvg(chosen);
           }
+        });
+      }
 
-          favBtn.classList.toggle("is-active");
+      const alertBtn = row.querySelector(".alert-btn");
+      if (alertBtn) {
+        alertBtn.addEventListener("click", async (e) => {
+          e.stopPropagation();
+          const chosen = findChosenByRow(row, data);
+          if (chosen) {
+             const isOn = await togglePriceAlert(chosen);
+             alertBtn.innerHTML = getAlertIcon(isOn);
+          }
         });
       }
     });

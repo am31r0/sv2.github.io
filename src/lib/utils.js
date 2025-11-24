@@ -10,6 +10,7 @@ export function uid() {
 
 // Escape HTML entities (veilig in innerHTML)
 export function escHtml(str) {
+  if (str === undefined || str === null || str === "undefined") return "Naamloos product";
   return String(str)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")

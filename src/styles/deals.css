@@ -14,7 +14,7 @@
     cursor: pointer;
     flex-shrink: 1;
     transition: background 0.2s;
-    background: var(--mini-surface);
+    background: #fff;
     border: 1px solid var(--border-line-muted);
     border-radius: 10px;
     box-shadow: 0px 0px 10px #00000012;
@@ -33,8 +33,8 @@
     color: #fff;
     font-family: 'Clash Display';
     letter-spacing: 1px;
-    padding-top:1rem;
-    padding-bottom:0.8rem;
+    padding-top: 1rem;
+    padding-bottom: 0.8rem;
     grid-column: 1 / -1;
     background: var(--accent);
 }
@@ -111,9 +111,6 @@
     transform: translatex(-50%);
 }
 
-.deal-card:hover {
-    background: color-mix(in lab, var(--mini-surface) 80%, var(--ink) 10%);
-}
 
 .deal-card img {
     width: min(22vw, 110px);
@@ -142,6 +139,13 @@
     font-size: calc(0.9rem * var(--font-size-factor));
     text-align: center;
     justify-content: center;
+    line-clamp: 2;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
 }
 
 .deal-card .meta {
@@ -197,10 +201,10 @@
     overflow-y: scroll;
 }
 
-.cat-nav-btn{
-    font-size:0.5rem;
+.cat-nav-btn {
+    font-size: 0.5rem;
     flex: 1;
-        min-width:7rem;
+    min-width: 7rem;
 }
 
 /* ===============================
@@ -209,7 +213,7 @@
 .store-deals-list {
     max-width: 95%;
     margin: 0 auto 2rem;
-    background: var(--surface);
+    background: #fff;
     border-radius: var(--radius);
     box-shadow: 0 0 8px #0000000d;
     padding: 0.6rem 0.6rem 1rem;
@@ -222,7 +226,7 @@
     margin-bottom: 0.8rem;
     border-left: 4px solid var(--border-line-muted);
     padding-left: 0.5rem;
-    
+
 }
 
 .store-header-row img.store-logo {
@@ -238,7 +242,7 @@
     padding: 0.2rem 0;
     font-size: 1rem;
     color: var(--ink);
-    
+
 }
 
 .deal-list {
@@ -250,18 +254,15 @@
 .deal-row {
     display: flex;
     align-items: center;
-    background: var(--mini-surface);
+    background: #fff;
     border: 1px solid var(--border-line-muted);
-    border-radius: 8px;
+    border-radius: 15px;
     padding: 0.5rem;
     gap: 0.6rem;
-    box-shadow: 0px 0px 10px #00000010;
+    box-shadow: 0px 0px 10px #00000009;
     transition: background 0.2s;
 }
 
-.deal-row:hover {
-    background: color-mix(in lab, var(--mini-surface) 80%, var(--ink) 10%);
-}
 
 .deal-thumb {
     width: 60px;
@@ -281,6 +282,11 @@
     font-size: 0.9rem;
     margin-bottom: 0.2rem;
     color: var(--ink);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .deal-prices {
@@ -295,7 +301,7 @@
 
 .deal-prices .new {
     font-weight: 600;
-    color: var(--accent, #007aff);
+    color: #ff6f08;
 }
 
 .deal-row .promo-end {
@@ -344,4 +350,27 @@
     justify-content: center;
     cursor: pointer;
     transition: all 0.15s ease;
-    overflow: visible;}
+    overflow: visible;
+}
+
+.search-results-deals .deal-card .info-btn {
+    position: absolute;
+    border: none;
+    overflow: visible;
+}
+
+.search-results-deals .deal-card .info-btn svg {
+    position: absolute;
+    left: 0px;
+    top: 1.6rem;
+    fill: #2db389;
+    width: 1.2rem;
+    height: 1.2rem;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    overflow: visible;
+}

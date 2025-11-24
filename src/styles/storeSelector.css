@@ -4,22 +4,24 @@
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    gap:0.8rem;
-    width:max-content;
-    max-width:100%;
-    padding:0.8rem 1.5rem 1rem 1.5rem;
-    border-radius:var(--radius);
-    margin:0.8rem auto 1.5rem auto;
+    gap: 0.8rem;
+    width: max-content;
+    max-width: 100%;
+    padding: 0.8rem 1.5rem 1rem 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid #ffffff55;
+    margin: 0.8rem auto 1.5rem auto;
     text-align: center;
-    background: linear-gradient(to right in oklab, #ffffff00, #ffffff33, #ffffff00);
+    background: linear-gradient(to right, #ffffff45, #ffffff35);
 }
-.store-select-group{
+
+.store-select-group {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
-    gap:1rem;
+    gap: 1rem;
     /*gap: clamp(0.3rem, 2.5vw, 0.8rem);*/
 }
 
@@ -27,7 +29,8 @@
     font-weight: 300;
     margin-right: 0.1rem;
     font-size: 0.75rem;
-    color:#fff;
+    font-weight: 400;
+    color: #fff;
 }
 
 .store-option {
@@ -47,10 +50,12 @@
     width: 2.5rem;
     height: auto;
     transition: all 0.2s ease;
-    border-radius:8px;
+    border-radius: 8px;
     filter: saturate(0) brightness(1) contrast(0.9);
     transform: scale(0.89);
 }
+
+.store-option img:nth-child(1) {}
 
 /* Checked state: highlight */
 .store-option input[type="checkbox"]:checked+img {
@@ -58,7 +63,8 @@
     transform: scale(1);
 }
 
-/* Hover effect *//*
+/* Hover effect */
+/*
 .store-option:hover img {
     transform: scale(1.09);
 }*/

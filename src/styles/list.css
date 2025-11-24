@@ -5,8 +5,6 @@
     color: #fff !important;
 }
 
-
-
 .list-container {
     background: var(--surface);
     border-radius: var(--radius);
@@ -21,38 +19,32 @@
     font-size: calc(0.65rem * var(--font-size-factor));
     padding: 0.2rem 0.4rem;
     vertical-align: middle;
-    margin-right:0.2rem;
+    margin-right: 0.2rem;
 }
 
 .store-jumbo {
     background-color: #ffd200;
-    /* Jumbo geel */
     color: #000;
-    /* zwart tekst want geel bg */
 }
 
 .store-ah {
     background-color: #00a0e3;
     color: #fff;
-    /* AH blauw */
 }
 
 .store-dirk {
     background-color: #e30613;
     color: #fff;
-    /* Dirk rood */
 }
 
 .store-aldi {
     background-color: #1b3a94;
     color: #fff;
-    /* Dirk rood */
 }
 
 .store-hoogvliet {
     background-color: #4ec5fc;
     color: #fff;
-    /* Dirk rood */
 }
 
 .list-items {
@@ -84,32 +76,30 @@
 
 .list-item input {
     position: relative;
-   transform: scale(0.1);
-   opacity: 1;
+    transform: scale(0.1);
+    opacity: 1;
 }
 
 .list-item input::after {
-position: absolute;
-content: '';
-width: 20px;
-height: 20px;
-background-color: #fff;
-border: 1px solid var(--ink);
-top:0;
-border-radius: 99px;
-transform: scale(6);
-opacity: 1;
-text-align: center;
-box-shadow: inset 0 0 7px #00000025;
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 1px solid var(--ink);
+    top: 0;
+    border-radius: 99px;
+    transform: scale(6);
+    opacity: 1;
+    text-align: center;
+    box-shadow: inset 0 0 7px #00000025;
 }
 
-.list-item input:checked::after{
-content:'✓';
-color:var(--ink);
-background-color: var(--mini-surface);
-
+.list-item input:checked::after {
+    content: '✓';
+    color: var(--ink);
+    background-color: var(--mini-surface);
 }
-
 
 .list-item .qty-badge {
     font-size: calc(0.8rem * var(--font-size-factor));
@@ -155,7 +145,7 @@ background-color: var(--mini-surface);
     display: flex;
     flex-direction: column;
     word-break: keep-all;
-    width: 149%;
+    width: 169%;
     align-items: flex-start;
     line-height: 1.4rem;
     font-size: calc(0.95rem * var(--font-size-factor));
@@ -187,7 +177,7 @@ span.item-full-name {
 
 .item-input {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 99px;
     border: 1px solid rgba(255, 255, 255, 0.12);
     background: var(--mini-surface);
     color: var(--ink);
@@ -204,16 +194,13 @@ span.item-full-name {
     border-radius: var(--btnradius);
     background: var(--accent);
     color: #fff;
-    /*border: 1px solid rgba(255, 255, 255, 0.12);*/
     cursor: pointer;
 }
 
 .btn.small:hover {
     background: var(--accent), #555;
-    background-blend-mode:overlay;
+    background-blend-mode: overlay;
 }
-
-
 
 .suggestions.open {
     display: block;
@@ -248,7 +235,6 @@ span.item-full-name {
     font-size: calc(.85rem * var(--font-size-factor));
 }
 
-/* Badge in boodschappenlijst (neutraal) */
 .list-pack-badge {
     display: inline-block;
     margin-left: 0.4rem;
@@ -274,13 +260,10 @@ span.item-full-name {
     z-index: 20;
     max-height: 220px;
     overflow: auto;
-    display: none;
-
 }
 
 .suggestions.open {
     display: block;
-    animation: fadeIn 0.2s ease-out;
 }
 
 .suggestion {
@@ -292,13 +275,13 @@ span.item-full-name {
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 0.7rem;
-    color:var(--ink);
-    border:none;
+    color: var(--ink);
+    border: none;
     text-align: left;
 }
 
 .suggestion:hover {
-    background: color-mix(in lab, var(--accent),#fff 30%);
+    background: color-mix(in lab, var(--accent), #fff 30%);
 }
 
 .list-item .promo-pill {
@@ -327,20 +310,21 @@ span.item-full-name {
     font-size: calc(1rem * var(--font-size-factor));
 }
 
-.list-item .list-price{
+.list-item .list-price {
     font-size: calc(1rem * var(--font-size-factor));
-    margin-left:0.3rem;
+    margin-left: 0.3rem;
 }
 
 .totals-bar {
-    position:sticky;
-    bottom:90px;
-    border: 1px solid #aaaaaa33;
+    position: sticky;
+    bottom: 90px;
+    border: 1px solid #00000035;
     border-radius: 10px;
     padding: 10px;
     margin-top: 4px;
     font-family: inherit;
-    background: var(--mini-surface);
+    background: #fff;
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.05);
 }
 
 .totals-line {
@@ -356,10 +340,8 @@ span.item-full-name {
 
 .totals-line.discount strong {
     color: #ff6a00;
-    /* roodachtig voor korting */
 }
 
-/* Acties onder totalen */
 .list-actions {
     display: flex;
     gap: 8px;
@@ -367,7 +349,6 @@ span.item-full-name {
     margin-top: 8px;
 }
 
-/* Rating */
 .rating-bar {
     text-align: center;
     margin: 24px 0 8px;
@@ -401,10 +382,11 @@ span.item-full-name {
     background: var(--muted, #f2f2f2);
 }
 
-.fav-btn{
+.fav-btn,
+.alert-btn {
     background: transparent;
-    border:none;
-    font-size:1rem;
+    border: none;
+    font-size: 1rem;
     align-self: center;
     cursor: pointer;
 }

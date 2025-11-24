@@ -80,14 +80,11 @@
 .card {
     background: var(--surface);
     border-radius: var(--radius);
-    padding: 2rem;
+    padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform var(--transition);
 }
 
-.card:hover {
-    transform: translateY(-4px);
-}
 
 .footer {
     text-align: center;
@@ -103,7 +100,7 @@
     /* hou ruimte zodat 'flash' wordt voorkomen */
     transition: opacity var(--transition), transform var(--transition);
     will-change: opacity, transform;
-    padding-bottom:110px;
+    padding-bottom: 130px;
 }
 
 /* Uitgaand (fade + subtiele slide) */

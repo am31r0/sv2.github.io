@@ -32,12 +32,14 @@ export async function renderHomePage(mount) {
 
     <div class="hero">
       <section class="hero__content">
-        <h1>Vind altijd de beste prijs</h1>
-        <p>Vergelijk supermarkten en bespaar geld op je boodschappenlijst.</p>
-        <a href="#/list" class="btn btn--primary">Start zoeken</a>
-      </section>
+      <div class="hero-inside">
+        <h1>Vind altijd de<br>beste prijs</h1>
+        <a href="#/list" class="btn btn--primary white-bg">Start zoeken</a>
+        <img src="./images/hero-banner-img_mascotte_01.webp" alt="">
+      </div>
+    </section>
     </div>
-
+    <div class="home-deals-wrapper">
     <section class="home-deals">
       <div class="home-deals-header">
         <h3 class="home-deals-title" style="text-align:center">Populaire aanbiedingen</h3>
@@ -46,44 +48,63 @@ export async function renderHomePage(mount) {
       <div class="home-deals-grid"></div>
       <div class="home-deals-empty" style="display:none; text-align:center; color:#fff;">Geen deals gevonden 😕</div>
     </section>
-
+    <a href="#/deals" class="btn small home-deals-btn">Alle aanbiedingen</a>
+    </div>
     <section class="home-wist-je">
-    <p>Wist je dat je gemiddeld<p class="price new" style="color: #ffac4eff;">€14,80</p>per week bespaart met Schappie?<p>
+    <p>Wist je dat je gemiddeld<p class="price new" style="margin-left: 0.5rem">€14,80</p><p>per week bespaart met Schappie?<p>
     </section>
 
-    <div role="figure" aria-label="Review van Steve over Schappie" style="max-width:min(500px,95%);margin:0px auto 0.8rem;padding:16px 18px;border-radius:16px;background:var(--surface);color:var(--ink);box-shadow:0 6px 24px rgba(0,0,0,.1);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;line-height:1.45;border:1px solid var(--mini-surface)">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
-      <div style="width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#fff;letter-spacing:.3px; background:var(--accent)" class="")>S</div>
-      <div>
-        <div style="font-size:14px;opacity:.9">Steve</div>
-        <div style="font-size:18px;font-weight:700;margin-top:2px;color:#df4e7f;">★★★★★
-          <span style="font-size:12px;font-weight:500;opacity:.7;margin-left:6px">(5/5)</span>
-        </div>
-      </div>
-      <div style="margin-left:auto;font-size:12px;opacity:.65">Gebruiker</div>
-    </div>
-  
-    <p style="margin:10px 0 0;font-size:15px;color:var(--ink)">
-      “Snel prijzen vergelijken, duidelijke categorieën en mijn lijstje blijft gewoon bewaard. Scheelt me echt geld bij elke boodschap.”
-    </p>
-  </div>
 
-  <div class="schappie-pro-card pro-gradient">
+
+  <div class="schappie-pro-card">
   <div class="pro-content">
-    <h2 class="pro-title">💎 Schappie Pro</h2>
+    <h2 class="pro-title">Schappie <span class="pro-badge pro-gradient" style="margin-left: 0.3rem; vertical-align: middle;">✨ PRO</span></h2>
     <p class="pro-subtitle">
-      Ontvang direct een pushmelding zodra jouw favoriete producten in de aanbieding zijn. 
+      Ontvang direct een melding zodra jouw favoriete producten in de aanbieding zijn. 
       Nooit meer te laat voor een deal!
     </p>
-    <button class="pro-btn">Bekijk alle voordelen →</button>
+    <a href="#/pro" class="pro-btn">Bekijk alle voordelen</a>
   </div>
 </div>
 
-  
+  <section class="home-reviews">
+    <h3 class="home-reviews-title">Wat anderen zeggen</h3>
+    <div class="home-reviews-carousel">
+      <div class="home-review-card">
+        <div class="home-review-header">
+          <div class="home-review-avatar">S</div>
+          <div class="home-review-info">
+            <div class="home-review-name">Steve <span class="pro-badge pro-gradient">✨ PRO</span></div>
+            <div class="home-review-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="home-review-text">"Snel prijzen vergelijken, duidelijke categorieën en mijn lijstje blijft gewoon bewaard. Scheelt me echt geld bij elke boodschap."</p>
+      </div>
 
-    <footer class="footer">
-      <p>&copy; 2025 Supermarkt Scanner — Alle rechten voorbehouden</p>
-    </footer>
+      <div class="home-review-card">
+        <div class="home-review-header">
+          <div class="home-review-avatar">L</div>
+          <div class="home-review-info">
+            <div class="home-review-name">Lisa</div>
+            <div class="home-review-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="home-review-text">"Eindelijk een app die me helpt om slim boodschappen te doen. Overzichtelijk en makkelijk in gebruik!"</p>
+      </div>
+
+      <div class="home-review-card">
+        <div class="home-review-header">
+          <div class="home-review-avatar">M</div>
+          <div class="home-review-info">
+            <div class="home-review-name">Mark <span class="pro-badge pro-gradient">✨ PRO</span></div>
+            <div class="home-review-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="home-review-text">"De prijsalerts zijn geweldig! Ik mis geen enkele aanbieding meer van mijn favoriete producten."</p>
+      </div>
+    </div>
+  </section>
+
   `;
 
   const grid = mount.querySelector(".home-deals-grid");
