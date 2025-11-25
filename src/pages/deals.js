@@ -11,6 +11,8 @@ import {
 } from "../lib/constants.js";
 import { addItem } from "../pages/list.js";
 import { showSkeletonOverlay, hideSkeletonOverlay } from "../lib/skeleton.js";
+import { toggleFavorite, heartSvg } from "../lib/favorites.js"; // ✅ Import favorites
+import { togglePriceAlert, hasAlert, getAlertIcon } from "../lib/priceAlert.js"; // ✅ Import price alerts
 
 const LS_KEY = "sms_list";
 
@@ -155,6 +157,8 @@ function renderProductCard(p) {
       </div>
       <div class="actions">
         <button class="btn small add-btn">Toevoegen</button>
+        <button class="fav-btn icon-btn" title="Favoriet" style="background:transparent;border:none; vertical-align:middle;padding-top:2px;">${heartSvg(p)}</button>
+        <button class="alert-btn icon-btn" title="Prijsalert" style="background:transparent;border:none; vertical-align:middle;padding-top:2px;">${getAlertIcon(hasAlert(p))}</button>
       </div>
     </div>
   `;
@@ -252,6 +256,53 @@ function showDealsModal(store, products) {
               String(r.sku) === id
           ) || null;
         if (chosen) addItem(chosen);
+      });
+    }
+
+    // ✅ Favorite button
+    const favBtn = card.querySelector(".fav-btn");
+    if (favBtn) {
+      favBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const id = card.dataset.id;
+        const chosen = products.find(
+          (r) =>
+            String(r.id) === id ||
+            String(r.productId) === id ||
+            String(r.sku) === id
+        ) || null;
+        if (chosen) {
+          toggleFavorite(chosen);
+          favBtn.innerHTML = heartSvg(chosen);
+        }
+      });
+    }
+
+    // ✅ Price alert button
+    const alertBtn = card.querySelector(".alert-btn");
+    if (alertBtn) {
+      alertBtn.addEventListener("click", async (e) => {
+        e.stopPropagation();
+        const id = card.dataset.id;
+        const chosen = products.find(
+          (r) =>
+            String(r.id) === id ||
+            String(r.productId) === id ||
+            String(r.sku) === id
+        ) || null;
+        if (chosen) {
+          const isOn = await togglePriceAlert(chosen);
+          alertBtn.innerHTML = getAlertIcon(isOn);
+        }
+      });
+    }
+
+    // ✅ Info button
+    const infoBtn = card.querySelector(".info-btn");
+    if (infoBtn) {
+      infoBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        window.open(infoBtn.dataset.link, "_blank");
       });
     }
 
